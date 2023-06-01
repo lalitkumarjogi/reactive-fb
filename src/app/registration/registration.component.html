@@ -1,0 +1,62 @@
+<div class="container "style="justify-content: center;">
+   <div class="title">Sign In</div>
+   <div class="content" style="justify-content: center;">
+     <form  [formGroup]="contactForm" (ngSubmit)="Onsub()">
+       <div class="user-details">
+         <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">First Name </label>
+           <input type="text" placeholder="Enter your First name" formControlName="firstname">
+           <span  class="text-danger" *ngIf="contactForm.get('firstname')?.touched && contactForm.get('firstname')?.hasError('required')">FirstName is Required </span>
+           <span class="text-danger" *ngIf="contactForm.get('firstname')?.touched && contactForm.get('firstname')?.hasError('maxlength')">FirstName  upto 50 char</span>
+         </div>
+
+         <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Last Name </label>
+           <input type="text" placeholder="Enter your Last name" formControlName="lastname">
+           <span class="text-danger"  *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.hasError('required')">LastName is Required </span>
+           <span class="text-danger" *ngIf="contactForm.get('lastname')?.touched && contactForm.get('lastname')?.hasError('maxlength')">LastName upto 50 character </span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Email Address</label>
+           <input type="email" placeholder="Enter your Email" formControlName="email">
+           <span class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('required')">Email is required </span>
+           <span class="text-danger" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.hasError('minlength')">Email Must be 254 character </span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Phone Number </label>
+           <input type="text" placeholder="Enter your Phone Number" formControlName="phn">
+           <span class="text-danger" *ngIf="contactForm.get('phn')?.touched && contactForm.get('phn')?.hasError('required')">Phone Number is Required </span>
+           <span class="text-danger" *ngIf="contactForm.get('phn')?.touched && contactForm.get('phn')?.hasError('minlength')">Phone Number 10 Character minimum  </span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Organisation Name </label>
+           <input type="text" placeholder="Enter your Organisation Name" formControlName="org">
+           <span class="text-danger" *ngIf="contactForm.get('org')?.touched && contactForm.get('org')?.hasError('required')">Organisation Name is required </span>
+           <span class="text-danger" *ngIf="contactForm.get('org')?.touched && contactForm.get('org')?.hasError('maxlength')">Organisation Name must be 1000 character </span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Organisation Address </label>
+           <input type="text" placeholder="Enter your Organisation Address" formControlName="add">
+           <span class="text-danger" *ngIf="contactForm.get('add')?.touched && contactForm.get('add')?.hasError('required')">Organisation Address is required </span>
+           <span class="text-danger" *ngIf="contactForm.get('add')?.touched && contactForm.get('add')?.hasError('maxlength')">Organisation Address  must be 1000 character </span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Password </label>
+           <input type="password" placeholder="Enter your Password" formControlName="pass">
+           <span class="text-danger" *ngIf="contactForm.get('pass')?.touched && contactForm.get('pass')?.hasError('required')">Password  is required </span>
+           <span class="text-danger" *ngIf="contactForm.get('pass')?.touched && contactForm.get('pass')?.hasError('minlength')">Password must be 16 character</span>
+         </div>   <div class="input-box">
+          <span class="text-danger">*</span>
+           <label class="details">Organisation Established Date </label>
+           <input type="date" placeholder="Enter  Date" formControlName="date">
+           <span class="text-danger" *ngIf="contactForm.get('date')?.touched && contactForm.get('date')?.hasError('required')">Date is required </span>
+         </div>
+       </div>
+  
+       <button class="btn btn-secondary"  style="width: 10%;border-radius: 14px;" (click)="Onres()">Reset</button>
+       <button class="btn btn-primary" style="float: right;width: 10%;border-radius: 14px;" [disabled]="contactForm.invalid">Submit</button>
+     </form>
+   </div>
+ </div>
